@@ -2,13 +2,13 @@
 
 dir="$1"
 input="$dir/.edc"
-pdfopen=false
+command=false
 
 while read -r line
 do
-    if [ "$line" = "#pdfopen" ]; then
-        pdfopen=true
-    elif [ "$pdfopen" ]; then
+    if [ "$line" = "#batchopen" ]; then
+        command=true
+    elif [ "$command" ]; then
         if [ "$line" = "#*" ]; then
             break
         fi
